@@ -12,7 +12,6 @@ export interface UserTokenPayload {
     email: string;
 }
 
-
 /**
  @usage : Register User
  @method : POST
@@ -22,7 +21,7 @@ export interface UserTokenPayload {
  */
 export const registerUser = async (request: Request, response: Response) => {
     try {
-        // read the form data
+        // read the form data client
         const {username, email, password} = request.body;
 
         // check if the email is exists or not
