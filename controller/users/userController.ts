@@ -12,6 +12,7 @@ export interface UserTokenPayload {
     email: string;
 }
 
+
 /**
  @usage : Register User
  @method : POST
@@ -24,7 +25,7 @@ export const registerUser = async (request: Request, response: Response) => {
         // read the form data
         const {username, email, password} = request.body;
 
-        // check if the email is exists?
+        // check if the email is exists or not
         const user = await UserTable.findOne({email: email});
         if (user) {
             return response.status(401).json({msg: "User is already exists!"})
