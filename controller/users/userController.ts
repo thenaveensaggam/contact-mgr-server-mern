@@ -21,10 +21,10 @@ export interface UserTokenPayload {
  */
 export const registerUser = async (request: Request, response: Response) => {
     try {
-        // read the form data
+        // read the form data client
         const {username, email, password} = request.body;
 
-        // check if the email is exists?
+        // check if the email is exists or not
         const user = await UserTable.findOne({email: email});
         if (user) {
             return response.status(401).json({msg: "User is already exists!"})
